@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivo Greggio Maistro | Desenvolvedor Android</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4F4F4F;
+            --secondary-color: #00FFFF;
+            --dark-color: #333333;
+            --light-color: #F5F5F5;
+            --accent-color: #00CCCC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .profile-img i {
+            font-size: 80px;
+            color: #888;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary-color);
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: var(--dark-color);
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .contact-info a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            font-size: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto;
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .experience {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            font-size: 1rem;
+            color: #546E7A;
+            margin-bottom: 10px;
+        }
+        
+        .education {
+            margin-top: 40px;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 0 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .skill-category {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1>Ivo Greggio Maistro</h1>
+            <p class="tagline">Desenvolvedor Android | Java | Kotlin</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ivomaistro" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ivogmaistro" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="mailto:ivogmaistro@gmail.com"><i class="fas fa-envelope"></i> ivogmaistro@gmail.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Piracicaba, SP</a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <p>Desenvolvedor Android com mais de 10 anos de experiência no desenvolvimento de software. Possuo grande experiência em desenvolvimento em Delphi e VB6, atuando por toda a carreira. Atualmente estou focado em desenvolvimento mobile Android com Java e Kotlin, e estudando Flutter. Busco sempre melhorar pessoalmente para também poder melhorar a equipe e a empresa onde atuo.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Competências</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Desenvolvimento Mobile</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-android"></i> Desenvolvimento Android (Java/Kotlin)</li>
+                        <li><i class="fas fa-mobile-alt"></i> Android SDK</li>
+                        <li><i class="fas fa-layer-group"></i> Arquitetura MVVM</li>
+                        <li><i class="fas fa-database"></i> Room, Retrofit, Coroutines</li>
+                        <li><i class="fab fa-flutter"></i> Flutter (em aprendizado)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Desenvolvimento Desktop</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-code"></i> Delphi</li>
+                        <li><i class="fas fa-code"></i> Visual Basic</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-puzzle-piece"></i> Resolução de problemas</li>
+                        <li><i class="fas fa-users"></i> Trabalho em equipe</li>
+                        <li><i class="fas fa-comments"></i> Comunicação eficaz</li>
+                        <li><i class="fas fa-sync-alt"></i> Adaptabilidade</li>
+                        <li><i class="fas fa-book"></i> Aprendizado contínuo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experience">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Setembro 2021 - Presente</div>
+                        <h3 class="timeline-title">Mobile Developer (Java/Kotlin)</h3>
+                        <h4 class="timeline-subtitle">Assiste - Engenharia de Softwares Técnicos</h4>
+                        <p>Desenvolvimento de aplicações mobile para sistemas Android utilizando Java e Kotlin. Implementação de webservices em Java para integração com sistemas backend. Manutenção e otimização de aplicativos existentes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Novembro 2014 - Agosto 2021</div>
+                        <h3 class="timeline-title">Desenvolvedor Visual Basic</h3>
+                        <h4 class="timeline-subtitle">GAtec S/A Gestão Agroindustrial</h4>
+                        <p>Desenvolvimento de softwares voltados à área agrícola, escrito em VB6, atendimento e suporte aos clientes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Fevereiro 2013 - Outubro 2014</div>
+                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h4 class="timeline-subtitle">HPro Consultoria em Informática</h4>
+                        <p>Desenvolvimento de softwares personalizados voltado ao Comércio, escrito em Delphi XE, atendimento e suporte aos clientes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Fevereiro 2011 - Dezembro 2012</div>
+                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h4 class="timeline-subtitle">Lago's Informática</h4>
+                        <p>Desenvolvimento de software voltado à Odontologia, escrito em Delphi 7, atendimento e suporte aos clientes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Abril 2008 - Dezembro 2010</div>
+                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h4 class="timeline-subtitle">Salcam Tecnologia da Informação</h4>
+                        <p>Desenvolvimento de software voltado ao Comércio, escrito em Delphi 7, atendimento e suporte aos clientes.</p>
+                    </div>
+                </div>
+                
+                <div class="education">
+                    <h3 class="section-title" style="margin-bottom: 30px;">Formação Acadêmica</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018 - 2020</div>
+                            <h3 class="timeline-title">Bacharelado em Análise e desenvolvimento de sistemas</h3>
+                            <h4 class="timeline-subtitle">Universidade Cidade de São Paulo</h4>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2012 - 2018</div>
+                            <h3 class="timeline-title">Bacharelado em Ciência da Computação</h3>
+                            <h4 class="timeline-subtitle">Escola de Engenharia de Piracicaba</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ivo Greggio Maistro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
