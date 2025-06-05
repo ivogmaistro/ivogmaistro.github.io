@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo Greggio Maistro | Desenvolvedor Android</title>
+    <title>Ivo Greggio Maistro | Desenvolvedor da Terra Média</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
         :root {
-            --primary-color: #4F4F4F;
-            --secondary-color: #00FFFF;
-            --dark-color: #333333;
-            --light-color: #F5F5F5;
-            --accent-color: #00CCCC;
+            --gold-color: #DAA520;
+            --dark-gold: #B8860B;
+            --forest-green: #228B22;
+            --deep-brown: #654321;
+            --parchment: #F5F5DC;
+            --dark-stone: #2F2F2F;
+            --mithril: #C0C0C0;
+            --shadow: rgba(0, 0, 0, 0.3);
         }
         
         * {
@@ -21,10 +26,26 @@
         }
         
         body {
-            font-family: 'Roboto', 'Segoe UI', sans-serif;
-            color: var(--dark-color);
-            line-height: 1.6;
-            background-color: var(--light-color);
+            font-family: 'Crimson Text', serif;
+            color: var(--deep-brown);
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--parchment) 0%, #E6D7B8 100%);
+            background-attachment: fixed;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(101, 67, 33, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
         
         .container {
@@ -34,39 +55,79 @@
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+            background: linear-gradient(135deg, var(--deep-brown) 0%, var(--forest-green) 50%, var(--gold-color) 100%);
+            color: var(--parchment);
             padding: 100px 0 50px;
             text-align: center;
+            position: relative;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
         }
         
         .profile-img {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            border: 5px solid white;
+            border: 5px solid var(--gold-color);
             margin: 0 auto 20px;
-            background-color: #ddd;
+            background-color: var(--parchment);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 
+                0 0 20px var(--gold-color),
+                0 5px 15px var(--shadow);
+            position: relative;
+        }
+        
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: conic-gradient(var(--gold-color), var(--dark-gold), var(--gold-color));
+            z-index: -1;
         }
         
         .profile-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background-color: white;
+            background-color: var(--parchment);
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px var(--shadow);
+            color: var(--gold-color);
         }
         
         .tagline {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            font-style: italic;
+            color: var(--mithril);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--parchment);
+            font-style: italic;
         }
         
         .social-links {
@@ -77,97 +138,152 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: white;
-            color: var(--primary-color);
+            background: var(--gold-color);
+            color: var(--deep-brown);
             margin: 0 10px;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 1.3rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 15px var(--shadow);
+            border: 2px solid var(--dark-gold);
         }
         
         .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background: var(--dark-color);
-            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px var(--shadow);
+            background: var(--parchment);
+            color: var(--forest-green);
+            border-color: var(--forest-green);
         }
         
         .contact-info {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         .contact-info a {
-            color: white;
-            margin: 0 15px;
+            color: var(--parchment);
+            margin: 5px 15px;
             text-decoration: none;
             display: flex;
             align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--gold-color);
         }
         
         .contact-info i {
-            margin-right: 5px;
+            margin-right: 8px;
         }
         
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+            position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
-            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--deep-brown);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .section-title:after {
-            content: '';
+            content: '⚔';
             display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 10px auto;
+            font-size: 2rem;
+            color: var(--gold-color);
+            margin: 15px auto;
+            text-shadow: 0 0 10px var(--gold-color);
         }
         
         .about-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 2px solid var(--gold-color);
+            position: relative;
+        }
+        
+        .about-content::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--gold-color);
+            font-family: 'Cinzel', serif;
+        }
+        
+        .about-content::after {
+            content: '"';
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 4rem;
+            color: var(--gold-color);
+            font-family: 'Cinzel', serif;
         }
         
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 50px;
         }
         
         .skill-category {
             flex: 1;
-            min-width: 250px;
-            max-width: 350px;
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            min-width: 280px;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px var(--shadow);
+            transition: all 0.4s ease;
+            border: 3px solid var(--gold-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--gold-color));
         }
         
         .skill-category:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+            border-color: var(--forest-green);
         }
         
         .skill-category h3 {
             text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary-color);
+            margin-bottom: 25px;
+            color: var(--deep-brown);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
         }
         
         .skill-list {
@@ -175,28 +291,42 @@
         }
         
         .skill-list li {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
+            font-size: 1.05rem;
         }
         
         .skill-list li i {
-            color: var(--secondary-color);
-            margin-right: 10px;
+            color: var(--forest-green);
+            margin-right: 12px;
+            font-size: 1.2rem;
         }
         
         .experience {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 900px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            max-width: 1000px;
             margin: 0 auto;
+            border: 3px solid var(--gold-color);
+            position: relative;
+        }
+        
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--deep-brown), var(--forest-green), var(--gold-color));
         }
         
         .timeline {
             position: relative;
-            padding-left: 30px;
+            padding-left: 40px;
         }
         
         .timeline:before {
@@ -205,25 +335,31 @@
             left: 0;
             top: 5px;
             bottom: 5px;
-            width: 3px;
-            background: var(--primary-color);
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gold-color), var(--forest-green), var(--deep-brown));
+            border-radius: 2px;
         }
         
         .timeline-item {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
         }
         
         .timeline-item:before {
-            content: '';
+            content: '⚡';
             position: absolute;
-            left: -36px;
+            left: -54px;
             top: 5px;
-            width: 15px;
-            height: 15px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background: var(--secondary-color);
-            border: 3px solid var(--primary-color);
+            background: var(--gold-color);
+            border: 3px solid var(--deep-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 0 15px var(--gold-color);
         }
         
         .timeline-item:last-child {
@@ -231,32 +367,73 @@
         }
         
         .timeline-date {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 5px;
+            font-size: 1rem;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-style: italic;
         }
         
         .timeline-title {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+            color: var(--deep-brown);
         }
         
         .timeline-subtitle {
-            font-size: 1rem;
-            color: #546E7A;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--forest-green);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        .timeline-item p {
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         
         .education {
-            margin-top: 40px;
+            margin-top: 50px;
         }
         
         footer {
-            background: var(--dark-color);
-            color: white;
+            background: linear-gradient(135deg, var(--deep-brown), var(--dark-stone));
+            color: var(--parchment);
             text-align: center;
-            padding: 20px;
-            margin-top: 60px;
+            padding: 40px 20px;
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--gold-color));
+        }
+        
+        .footer-text {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        /* Animações sutis */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .section-title {
+            background: linear-gradient(90deg, var(--deep-brown), var(--gold-color), var(--deep-brown));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
         }
         
         @media (max-width: 768px) {
@@ -265,19 +442,39 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .tagline {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .skill-category {
                 min-width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience {
+                padding: 30px 20px;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-item:before {
+                left: -44px;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -289,11 +486,12 @@
                 <img src="./profile.png" alt="Ivo Greggio Maistro" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/ivogmaistro/ivogmaistro.github.io/main/profile-photo.jpg'; if (this.src.includes('main') && this.naturalHeight === 0) this.src='https://github.com/ivogmaistro/ivogmaistro.github.io/raw/master/profile-photo.jpg';">
             </div>
             <h1>Ivo Greggio Maistro</h1>
-            <p class="tagline">Desenvolvedor Android | Java | Kotlin</p>
+            <p class="subtitle">"Forjador de Códigos da Terra Média"</p>
+            <p class="tagline">Desenvolvedor Android | Mestre em Java & Kotlin</p>
             
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/ivomaistro" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/ivogmaistro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ivomaistro" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ivogmaistro" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
             
             <div class="contact-info">
@@ -305,44 +503,45 @@
     
     <section id="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title">A Saga do Desenvolvedor</h2>
             <div class="about-content">
-                <p>Desenvolvedor Android com mais de 10 anos de experiência no desenvolvimento de software. Possuo grande experiência em desenvolvimento em Delphi e VB6, atuando por toda a carreira. Atualmente estou focado em desenvolvimento mobile Android com Java e Kotlin, e estudando Flutter. Busco sempre melhorar pessoalmente para também poder melhorar a equipe e a empresa onde atuo.</p>
+                <p>Assim como um anão forja suas armas nas profundezas de Khazad-dûm, eu forjo aplicações mobile há mais de uma década. Minha jornada começou nas terras de Delphi e VB6, onde aprendi os segredos da programação. Hoje, empunho Java e Kotlin como espadas élficas no desenvolvimento Android, e exploro os mistérios do Flutter como um novo caminho pela Floresta das Trevas. Cada linha de código é uma runa gravada com precisão, cada aplicativo uma fortaleza construída para durar eras. Busco sempre evoluir minhas habilidades, pois como disse Gandalf: "Tudo o que temos de decidir é o que fazer com o tempo que nos é dado".</p>
             </div>
         </div>
     </section>
     
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Competências</h2>
+            <h2 class="section-title">Arsenal de Habilidades</h2>
             <div class="skills">
                 <div class="skill-category">
-                    <h3>Desenvolvimento Mobile</h3>
+                    <h3>🏹 Desenvolvimento Mobile</h3>
                     <ul class="skill-list">
-                        <li><i class="fab fa-android"></i> Desenvolvimento Android (Java/Kotlin)</li>
-                        <li><i class="fas fa-mobile-alt"></i> Android SDK</li>
+                        <li><i class="fab fa-android"></i> Android SDK (Domínio Élfico)</li>
+                        <li><i class="fas fa-code"></i> Java & Kotlin (Línguas Antigas)</li>
                         <li><i class="fas fa-layer-group"></i> Arquitetura MVVM</li>
                         <li><i class="fas fa-database"></i> Room, Retrofit, Coroutines</li>
-                        <li><i class="fab fa-flutter"></i> Flutter (em aprendizado)</li>
+                        <li><i class="fab fa-google"></i> Flutter (Magia em Aprendizado)</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Desenvolvimento Desktop</h3>
+                    <h3>⚔️ Ferramentas Ancestrais</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-code"></i> Delphi</li>
-                        <li><i class="fas fa-code"></i> Visual Basic</li>
+                        <li><i class="fas fa-hammer"></i> Delphi (Martelo dos Anões)</li>
+                        <li><i class="fas fa-gem"></i> Visual Basic (Cristal Palantír)</li>
+                        <li><i class="fas fa-server"></i> Webservices Java</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Soft Skills</h3>
+                    <h3>🛡️ Virtudes da Sociedade</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-puzzle-piece"></i> Resolução de problemas</li>
-                        <li><i class="fas fa-users"></i> Trabalho em equipe</li>
-                        <li><i class="fas fa-comments"></i> Comunicação eficaz</li>
+                        <li><i class="fas fa-puzzle-piece"></i> Resolução de Problemas</li>
+                        <li><i class="fas fa-users"></i> Trabalho em Equipe</li>
+                        <li><i class="fas fa-comments"></i> Comunicação Eficaz</li>
                         <li><i class="fas fa-sync-alt"></i> Adaptabilidade</li>
-                        <li><i class="fas fa-book"></i> Aprendizado contínuo</li>
+                        <li><i class="fas fa-book-open"></i> Sede de Conhecimento</li>
                     </ul>
                 </div>
             </div>
@@ -351,58 +550,60 @@
     
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">Experiência Profissional</h2>
+            <h2 class="section-title">Crônicas da Jornada Profissional</h2>
             <div class="experience">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Setembro 2021 - Presente</div>
-                        <h3 class="timeline-title">Mobile Developer (Java/Kotlin)</h3>
+                        <h3 class="timeline-title">Guardião Mobile (Java/Kotlin)</h3>
                         <h4 class="timeline-subtitle">Assiste - Engenharia de Softwares Técnicos</h4>
-                        <p>Desenvolvimento de aplicações mobile para sistemas Android utilizando Java e Kotlin. Implementação de webservices em Java para integração com sistemas backend. Manutenção e otimização de aplicativos existentes.</p>
+                        <p>Como um ranger protegendo as fronteiras de Gondor, desenvolvo aplicações mobile Android utilizando as linguagens sagradas Java e Kotlin. Forjo webservices como pontes entre reinos, integrando sistemas backend com a maestria de um ferreiro élfico. Mantenho e otimizo aplicações existentes como quem cuida de antigas fortalezas.</p>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Novembro 2014 - Agosto 2021</div>
-                        <h3 class="timeline-title">Desenvolvedor Visual Basic</h3>
+                        <h3 class="timeline-title">Escriba das Terras Agrícolas</h3>
                         <h4 class="timeline-subtitle">GAtec S/A Gestão Agroindustrial</h4>
-                        <p>Desenvolvimento de softwares voltados à área agrícola, escrito em VB6, atendimento e suporte aos clientes.</p>
+                        <p>Nas vastas planícies de Rohan, desenvolvi softwares para os senhores da agricultura, utilizando as antigas runas do VB6. Ofereci suporte aos cavaleiros da terra, guiando-os através das complexidades tecnológicas como Gandalf guiou a Sociedade.</p>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Fevereiro 2013 - Outubro 2014</div>
-                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h3 class="timeline-title">Artesão do Comércio</h3>
                         <h4 class="timeline-subtitle">HPro Consultoria em Informática</h4>
-                        <p>Desenvolvimento de softwares personalizados voltado ao Comércio, escrito em Delphi XE, atendimento e suporte aos clientes.</p>
+                        <p>Nas movimentadas ruas de Bree, criei soluções personalizadas para mercadores, usando o poder do Delphi XE. Cada software era forjado sob medida, como uma cota de malha élfica, perfeita para seu portador.</p>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Fevereiro 2011 - Dezembro 2012</div>
-                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h3 class="timeline-title">Curandeiro Digital</h3>
                         <h4 class="timeline-subtitle">Lago's Informática</h4>
-                        <p>Desenvolvimento de software voltado à Odontologia, escrito em Delphi 7, atendimento e suporte aos clientes.</p>
+                        <p>Como Elrond em Valfenda, desenvolvi ferramentas de cura digital para os curadores dentistas, utilizando Delphi 7. Cada linha de código era uma poção de cura, trazendo eficiência e organização aos consultórios.</p>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Abril 2008 - Dezembro 2010</div>
-                        <h3 class="timeline-title">Programador Delphi</h3>
+                        <h3 class="timeline-title">Aprendiz da Programação</h3>
                         <h4 class="timeline-subtitle">Salcam Tecnologia da Informação</h4>
-                        <p>Desenvolvimento de software voltado ao Comércio, escrito em Delphi 7, atendimento e suporte aos clientes.</p>
+                        <p>Minha jornada começou aqui, como um jovem hobbit deixando o Condado. Aprendi os fundamentos do desenvolvimento com Delphi 7, criando soluções para o comércio e descobrindo minha paixão pela programação.</p>
                     </div>
                 </div>
                 
                 <div class="education">
-                    <h3 class="section-title" style="margin-bottom: 30px;">Formação Acadêmica</h3>
+                    <h3 class="section-title" style="margin-bottom: 40px;">Pergaminhos do Saber</h3>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-date">2018 - 2020</div>
-                            <h3 class="timeline-title">Bacharelado em Análise e desenvolvimento de sistemas</h3>
+                            <h3 class="timeline-title">Pergaminho de Análise e Desenvolvimento</h3>
                             <h4 class="timeline-subtitle">Universidade Cidade de São Paulo</h4>
+                            <p>Aprofundei meus conhecimentos na arte do desenvolvimento, como um mago estudando em Minas Tirith.</p>
                         </div>
                         
                         <div class="timeline-item">
                             <div class="timeline-date">2012 - 2018</div>
-                            <h3 class="timeline-title">Bacharelado em Ciência da Computação</h3>
+                            <h3 class="timeline-title">Pergaminho da Ciência da Computação</h3>
                             <h4 class="timeline-subtitle">Escola de Engenharia de Piracicaba</h4>
+                            <p>Onde tudo começou - minha primeira jornada pelos reinos da computação, estabelecendo as bases para todas as aventuras que viriam.</p>
                         </div>
                     </div>
                 </div>
@@ -412,7 +613,7 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Ivo Greggio Maistro. Todos os direitos reservados.</p>
+            <p class="footer-text">&copy; 2025 Ivo Greggio Maistro - "Nem todos os que vagueiam estão perdidos"</p>
         </div>
     </footer>
 </body>
