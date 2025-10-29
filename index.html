@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo Greggio Maistro | Desenvolvedor da Terra Média</title>
+    <title>Ivo Greggio Maistro | Desenvolvedor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        /*
+        Paleta de Cores Inspirada na Imagem KPfE3ge.jpg:
+        - Fundo (Geral): Creme claro / Branco sujo (#F5F5DC ou #FAFAFA)
+        - Cartões / Bordas: Branco (#FFFFFF) com borda suave
+        - Destaque / Botões: Amarelo/Dourado do botão de ação (#FFD700 ou similar)
+        - Texto: Preto ou Marrom escuro (#333333)
+        */
         
         :root {
-            --gold-color: #DAA520;
-            --dark-gold: #B8860B;
-            --forest-green: #228B22;
-            --deep-brown: #654321;
-            --parchment: #F5F5DC;
-            --dark-stone: #2F2F2F;
-            --mithril: #C0C0C0;
-            --shadow: rgba(0, 0, 0, 0.3);
+            --background-color: #F8F8F8; /* Mais claro para fundo */
+            --card-background: #FFFFFF;
+            --main-text-color: #333333;
+            --sub-text-color: #666666;
+            --highlight-color: #FFD700; /* Amarelo/Dourado do botão */
+            --highlight-border: #E0E0E0; /* Borda suave para elementos */
+            --dark-border: #333333; /* Borda escura para divisores */
+            --shadow: rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -26,462 +32,317 @@
         }
         
         body {
-            font-family: 'Crimson Text', serif;
-            color: var(--deep-brown);
-            line-height: 1.7;
-            background: linear-gradient(135deg, var(--parchment) 0%, #E6D7B8 100%);
-            background-attachment: fixed;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(101, 67, 33, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+            font-family: 'Arial', sans-serif; /* Tipografia simples e limpa */
+            color: var(--main-text-color);
+            line-height: 1.6;
+            background: var(--background-color);
+            padding-bottom: 50px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
+        /* Estilo do cabeçalho simplificado */
         header {
-            background: linear-gradient(135deg, var(--deep-brown) 0%, var(--forest-green) 50%, var(--gold-color) 100%);
-            color: var(--parchment);
-            padding: 100px 0 50px;
+            background: var(--background-color);
+            padding: 40px 0 20px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
         }
         
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 5px solid var(--gold-color);
-            margin: 0 auto 20px;
-            background-color: var(--parchment);
+            border: 3px solid var(--highlight-color);
+            margin: 0 auto 15px;
             overflow: hidden;
-            box-shadow: 
-                0 0 20px var(--gold-color),
-                0 5px 15px var(--shadow);
-            position: relative;
-        }
-        
-        .profile-img::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 50%;
-            background: conic-gradient(var(--gold-color), var(--dark-gold), var(--gold-color));
-            z-index: -1;
+            box-shadow: 0 0 10px var(--shadow);
         }
         
         .profile-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background-color: var(--parchment);
+            background-color: var(--card-background);
         }
         
         h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px var(--shadow);
-            color: var(--gold-color);
-        }
-        
-        .tagline {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-style: italic;
-            color: var(--mithril);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: var(--main-text-color);
         }
         
         .subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--parchment);
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--sub-text-color);
             font-style: italic;
         }
         
-        .social-links {
-            margin: 20px 0;
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--main-text-color);
         }
         
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            background: var(--gold-color);
-            color: var(--deep-brown);
-            margin: 0 10px;
-            font-size: 1.3rem;
-            transition: all 0.4s ease;
-            box-shadow: 0 3px 15px var(--shadow);
-            border: 2px solid var(--dark-gold);
+            background: var(--highlight-color);
+            color: var(--main-text-color);
+            margin: 0 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s;
         }
         
         .social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 25px var(--shadow);
-            background: var(--parchment);
-            color: var(--forest-green);
-            border-color: var(--forest-green);
+            background: var(--main-text-color);
+            color: var(--highlight-color);
         }
         
         .contact-info {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 15px;
             flex-wrap: wrap;
+            font-size: 0.9rem;
         }
         
         .contact-info a {
-            color: var(--parchment);
-            margin: 5px 15px;
+            color: var(--sub-text-color);
+            margin: 5px 10px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .contact-info a:hover {
-            color: var(--gold-color);
         }
         
         .contact-info i {
-            margin-right: 8px;
+            margin-right: 5px;
         }
+        
+        /* ------------------------------------- */
+        /* Estilos dos Cartões (Seções) */
+        /* ------------------------------------- */
         
         section {
-            padding: 80px 0;
-            position: relative;
+            padding: 20px 0;
         }
         
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: var(--deep-brown);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--main-text-color);
+            margin: 30px 0 20px;
+        }
+
+        .section-header:first-of-type {
+            margin-top: 0;
         }
         
-        .section-title:after {
-            content: '⚔';
-            display: block;
-            font-size: 2rem;
-            color: var(--gold-color);
-            margin: 15px auto;
-            text-shadow: 0 0 10px var(--gold-color);
-        }
-        
-        .about-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.9;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow);
-            border: 2px solid var(--gold-color);
-            position: relative;
-        }
-        
-        .about-content::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--gold-color);
-            font-family: 'Cinzel', serif;
-        }
-        
-        .about-content::after {
-            content: '"';
-            position: absolute;
-            bottom: -30px;
-            right: 20px;
-            font-size: 4rem;
-            color: var(--gold-color);
-            font-family: 'Cinzel', serif;
-        }
-        
-        .skills {
+        .card-group {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
         }
         
-        .skill-category {
-            flex: 1;
-            min-width: 280px;
-            max-width: 380px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
+        .card, .card-full {
+            background: var(--card-background);
+            border: 1px solid var(--highlight-border);
+            border-radius: 10px; /* Bordas arredondadas da imagem */
+            box-shadow: 0 2px 5px var(--shadow);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover, .card-full:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-full {
+            width: 100%;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
             padding: 40px;
-            box-shadow: 0 8px 25px var(--shadow);
-            transition: all 0.4s ease;
-            border: 3px solid var(--gold-color);
-            position: relative;
-            overflow: hidden;
         }
-        
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--gold-color));
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px var(--shadow);
-            border-color: var(--forest-green);
-        }
-        
-        .skill-category h3 {
+
+        .card {
+            width: 100%;
+            max-width: 300px; /* Para as skills */
             text-align: center;
-            margin-bottom: 25px;
-            color: var(--deep-brown);
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            padding: 20px;
         }
         
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--main-text-color);
+            border-bottom: 2px solid var(--highlight-border);
+            padding-bottom: 10px;
+        }
+
+        .card-full h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Botões de Ação (Aparência da imagem) */
+        .action-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: var(--highlight-color);
+            color: var(--main-text-color);
+            border: 1px solid var(--main-text-color); /* Borda sutil escura */
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background: var(--main-text-color);
+            color: var(--highlight-color);
+        }
+        
+        /* Estilo da Lista de Skills */
         .skill-list {
             list-style: none;
+            text-align: left;
         }
         
         .skill-list li {
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
         
         .skill-list li i {
-            color: var(--forest-green);
-            margin-right: 12px;
-            font-size: 1.2rem;
+            color: var(--highlight-color);
+            margin-right: 10px;
+            font-size: 1.1rem;
         }
         
-        .experience {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px var(--shadow);
-            max-width: 1000px;
-            margin: 0 auto;
-            border: 3px solid var(--gold-color);
-            position: relative;
-        }
-        
-        .experience::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--deep-brown), var(--forest-green), var(--gold-color));
-        }
-        
+        /* Estilo da Experiência (Timeline simplificada) */
         .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            bottom: 5px;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--gold-color), var(--forest-green), var(--deep-brown));
-            border-radius: 2px;
+            margin-top: 10px;
         }
         
         .timeline-item {
-            margin-bottom: 50px;
+            border-left: 3px solid var(--dark-border); /* Linha divisória escura */
+            padding: 10px 0 20px 20px;
             position: relative;
+            margin-bottom: 15px;
         }
         
         .timeline-item:before {
-            content: '⚡';
+            content: '';
             position: absolute;
-            left: -54px;
-            top: 5px;
-            width: 30px;
-            height: 30px;
+            left: -8px;
+            top: 15px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            background: var(--gold-color);
-            border: 3px solid var(--deep-brown);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            box-shadow: 0 0 15px var(--gold-color);
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
+            background: var(--highlight-color);
+            border: 3px solid var(--dark-border);
+            box-shadow: 0 0 5px var(--shadow);
         }
         
         .timeline-date {
-            font-size: 1rem;
-            color: var(--forest-green);
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--sub-text-color);
+            font-weight: normal;
             font-style: italic;
+            margin-bottom: 5px;
         }
         
         .timeline-title {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-            font-family: 'Cinzel', serif;
-            color: var(--deep-brown);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 3px;
         }
         
         .timeline-subtitle {
-            font-size: 1.1rem;
-            color: var(--forest-green);
-            margin-bottom: 12px;
-            font-style: italic;
+            font-size: 1rem;
+            color: var(--sub-text-color);
+            font-style: normal;
+            margin-bottom: 8px;
         }
         
         .timeline-item p {
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
         }
         
-        .education {
-            margin-top: 50px;
-        }
-        
+        /* Estilo do Rodapé */
         footer {
-            background: linear-gradient(135deg, var(--deep-brown), var(--dark-stone));
-            color: var(--parchment);
+            background: var(--card-background);
+            color: var(--sub-text-color);
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold-color), var(--forest-green), var(--gold-color));
+            padding: 20px 20px;
+            border-top: 1px solid var(--highlight-border);
+            margin-top: 40px;
         }
         
         .footer-text {
-            font-style: italic;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            font-style: normal;
         }
         
-        /* Animações sutis */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        
-        .section-title {
-            background: linear-gradient(90deg, var(--deep-brown), var(--gold-color), var(--deep-brown));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
+        /* Media Queries para Responsividade */
         @media (max-width: 768px) {
-            header {
-                padding: 60px 0 30px;
+            .card {
+                max-width: 100%;
             }
-            
+
+            .card-full {
+                padding: 20px;
+            }
+
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .section-header {
+                font-size: 1.5rem;
             }
-            
-            .skill-category {
-                min-width: 100%;
+
+            .timeline-item {
+                padding-left: 15px;
             }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .experience {
-                padding: 30px 20px;
-            }
-            
-            .timeline {
-                padding-left: 30px;
-            }
-            
+
             .timeline-item:before {
-                left: -44px;
-                width: 25px;
-                height: 25px;
-                font-size: 0.8rem;
+                left: -7px;
+                width: 14px;
+                height: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="container">
+        <header>
             <div class="profile-img">
                 <img src="./profile.png" alt="Ivo Greggio Maistro" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/ivogmaistro/ivogmaistro.github.io/main/profile-photo.jpg'; if (this.src.includes('main') && this.naturalHeight === 0) this.src='https://github.com/ivogmaistro/ivogmaistro.github.io/raw/master/profile-photo.jpg';">
             </div>
@@ -498,24 +359,21 @@
                 <a href="mailto:ivogmaistro@gmail.com"><i class="fas fa-envelope"></i> ivogmaistro@gmail.com</a>
                 <a href="#"><i class="fas fa-map-marker-alt"></i> Piracicaba, SP</a>
             </div>
-        </div>
-    </header>
+        </header>
     
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">A Saga do Desenvolvedor</h2>
-            <div class="about-content">
+        <section id="about">
+            <div class="section-header">Sobre a Jornada</div>
+            <div class="card-full about-content">
                 <p>Assim como um anão forja suas armas nas profundezas de Khazad-dûm, eu forjo aplicações mobile há mais de uma década. Minha jornada começou nas terras de Delphi e VB6, onde aprendi os segredos da programação. Hoje, empunho Java e Kotlin como espadas élficas no desenvolvimento Android, e exploro os mistérios do Flutter como um novo caminho pela Floresta das Trevas. Cada linha de código é uma runa gravada com precisão, cada aplicativo uma fortaleza construída para durar eras. Busco sempre evoluir minhas habilidades, pois como disse Gandalf: "Tudo o que temos de decidir é o que fazer com o tempo que nos é dado".</p>
+                <a href="#" class="action-button">Leia Mais sobre a Saga</a>
             </div>
-        </div>
-    </section>
-    
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Arsenal de Habilidades</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <h3>🏹 Desenvolvimento Mobile</h3>
+        </section>
+        
+        <section id="skills">
+            <div class="section-header">Arsenal de Habilidades</div>
+            <div class="card-group">
+                <div class="card">
+                    <h3 class="card-title">🏹 Desenvolvimento Mobile</h3>
                     <ul class="skill-list">
                         <li><i class="fab fa-android"></i> Android SDK (Domínio Élfico)</li>
                         <li><i class="fas fa-code"></i> Java & Kotlin (Línguas Antigas)</li>
@@ -525,8 +383,8 @@
                     </ul>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>⚔️ Ferramentas Ancestrais</h3>
+                <div class="card">
+                    <h3 class="card-title">⚔️ Ferramentas Ancestrais</h3>
                     <ul class="skill-list">
                         <li><i class="fas fa-hammer"></i> Delphi (Martelo dos Anões)</li>
                         <li><i class="fas fa-gem"></i> Visual Basic (Cristal Palantír)</li>
@@ -534,8 +392,8 @@
                     </ul>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>🛡️ Virtudes da Sociedade</h3>
+                <div class="card">
+                    <h3 class="card-title">🛡️ Virtudes da Sociedade</h3>
                     <ul class="skill-list">
                         <li><i class="fas fa-puzzle-piece"></i> Resolução de Problemas</li>
                         <li><i class="fas fa-users"></i> Trabalho em Equipe</li>
@@ -545,13 +403,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Crônicas da Jornada Profissional</h2>
-            <div class="experience">
+        </section>
+        
+        <section id="experience">
+            <div class="section-header">Crônicas da Jornada Profissional</div>
+            <div class="card-full experience">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Setembro 2021 - Presente</div>
@@ -590,7 +446,7 @@
                 </div>
                 
                 <div class="education">
-                    <h3 class="section-title" style="margin-bottom: 40px;">Pergaminhos do Saber</h3>
+                    <h3 class="card-title" style="margin-top: 30px;">Pergaminhos do Saber (Educação)</h3>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-date">2018 - 2020</div>
@@ -608,8 +464,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     
     <footer>
         <div class="container">
