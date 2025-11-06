@@ -187,70 +187,83 @@
             display: block;
             width: 100%;
             padding: 10px;
-            margin-top: 20px;
             background: var(--highlight-color);
             color: var(--main-text-color);
-            border: 3px solid var(--border-color);
             text-align: center;
             text-decoration: none;
+            border: 3px solid var(--border-color);
+            font-size: 0.8rem;
             font-weight: bold;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
             box-shadow: 3px 3px 0 var(--border-color);
             transition: transform 0.1s, box-shadow 0.1s;
-            cursor: pointer;
         }
-
+        
         .action-button:hover {
-            background: var(--main-text-color);
-            color: var(--highlight-color);
             transform: translate(3px, 3px);
             box-shadow: none;
         }
         
-        /* Estilo da Lista de Skills */
+        /* Lista de Skills */
         .skill-list {
             list-style: none;
             text-align: left;
+            font-size: 0.8rem;
         }
         
         .skill-list li {
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            font-size: 0.8rem;
         }
         
-        .skill-list li i {
+        .skill-list i {
+            margin-right: 5px;
             color: var(--secondary-highlight);
-            margin-right: 10px;
-            font-size: 1.1rem;
         }
         
-        /* Estilo da Experiência (Timeline Retro) */
+        /* Seção Sobre Mim */
+        .about-content {
+            text-align: justify;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        /* Linha do Tempo (Timeline) */
         .timeline {
-            margin-top: 10px;
+            position: relative;
+            padding: 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--highlight-color);
         }
         
         .timeline-item {
-            border-left: 3px solid var(--border-color);
-            padding: 10px 0 20px 20px;
             position: relative;
-            margin-bottom: 15px;
+            padding-left: 45px;
+            margin-bottom: 25px;
+            text-align: left;
         }
         
-        .timeline-item:before {
-            content: '>'; /* Ícone de cursor retro */
+        .timeline-item::before {
+            content: "";
             position: absolute;
-            left: -18px;
-            top: 15px;
-            width: 15px;
-            height: 15px;
-            background: var(--highlight-color);
+            left: 8px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--secondary-highlight);
             border: 3px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 2px 2px 0 var(--border-color);
+        }
+        
+        .timeline-item h3 {
             font-family: 'Press Start 2P', cursive;
             font-size: 0.6rem;
             line-height: 1;
@@ -278,6 +291,88 @@
             font-size: 0.8rem;
         }
         
+        /* ------------------------------------- */
+        /* Nova Seção: Aplicativos */
+        /* ------------------------------------- */
+        
+        .app-card {
+            background: var(--card-background);
+            border: 5px solid var(--border-color);
+            box-shadow: 6px 6px 0 var(--highlight-color);
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .app-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--highlight-color);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border: 3px solid var(--border-color);
+            box-shadow: 3px 3px 0 var(--secondary-highlight);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: var(--highlight-color);
+        }
+        
+        .app-content {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .app-name {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: var(--main-text-color);
+        }
+        
+        .app-description {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .app-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .app-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--secondary-highlight);
+            color: var(--card-background);
+            text-decoration: none;
+            border: 3px solid var(--border-color);
+            font-size: 0.7rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            box-shadow: 2px 2px 0 var(--border-color);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        
+        .app-link:hover {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+        
+        .app-link.secondary {
+            background: var(--card-background);
+            color: var(--main-text-color);
+        }
+        
         /* Estilo do Rodapé */
         footer {
             background: var(--main-text-color);
@@ -301,6 +396,20 @@
 
             h1 {
                 font-size: 1.1rem;
+            }
+            
+            .app-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .app-content {
+                text-align: center;
+            }
+            
+            .app-links {
+                justify-content: center;
             }
         }
     </style>
@@ -331,6 +440,36 @@
             <div class="card-full about-content">
                 <p>Sou um Desenvolvedor Mobile com mais de uma década de experiência. Minha trajetória profissional começou com tecnologias como Delphi e VB6, onde adquiri as bases da programação. Atualmente, meu foco principal é o desenvolvimento Android, utilizando as linguagens Java e Kotlin. Estou em constante evolução e explorando novas tecnologias como Flutter para expandir meu leque de atuação. Busco sempre aplicar as melhores práticas e desenvolver soluções robustas e de alta qualidade.</p>
                 <a href="curriculo.pdf" target="_blank" download="Ivo_Greggio_Maistro_CV.pdf" class="action-button">VISUALIZAR CV COMPLETO</a>
+            </div>
+        </section>
+        
+        <!-- NOVA SEÇÃO: APLICATIVOS DESENVOLVIDOS -->
+        <section id="apps" style="text-align: center;">
+            <div class="section-header">APLICATIVOS DESENVOLVIDOS</div>
+            <div class="card-full">
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-hand-holding"></i>
+                    </div>
+                    <div class="app-content">
+                        <h3 class="app-name">EMPRESTEI</h3>
+                        <p class="app-description">
+                            Aplicativo Android para gerenciar empréstimos de objetos. 
+                            Registre o que você emprestou, para quem, e receba lembretes 
+                            periódicos para não esquecer de cobrar a devolução. 
+                            Interface intuitiva com Material Design 3 e suporte a tema 
+                            escuro/claro.
+                        </p>
+                        <div class="app-links">
+                            <a href="https://play.google.com/store/apps/details?id=br.com.lomasoftware.emprestei" target="_blank" class="app-link">
+                                <i class="fab fa-google-play"></i> PLAY STORE
+                            </a>
+                            <a href="emprestei-privacy.html" target="_blank" class="app-link secondary">
+                                <i class="fas fa-shield-alt"></i> POLÍTICA DE PRIVACIDADE
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
